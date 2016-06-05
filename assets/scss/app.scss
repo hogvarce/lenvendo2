@@ -5,28 +5,30 @@ body {
   font-size: 16px;
 }
 
-.setup, .puzzle {
+.container {
     padding: 16px;
-    margin-bottom: 32px;
-    h2 {
-        margin: 0;
-    }
-}
-
-.setup {
     border: 1px solid #ccc;
-    background-color: #eee;
+    background: #eee;
+    margin-bottom: 32px;
 }
 
-.puzzle {
-    border: 1px solid red;
-    background-color: #ffdbd6;
-    &.solved {
-        border: 1px solid green;
-        background-color: #ccffda;
-    }
+button {
+    padding: 4px 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: default;
 }
 
-.name {
-    font-weight: bold;
+button:not([disabled]) {
+    cursor: pointer;
+}
+
+button:not([disabled]):hover {
+    background: salmon;
+    color: white;
+}
+
+
+.highlight {
+    font-weight:  bold;
 }

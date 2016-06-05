@@ -24,7 +24,8 @@
   },
   "files": [
     "./dev/app.component.ts",
-    "./dev/boot.ts",
-    "./dev/puzzle/puzzle.component.ts"
+    "./dev/bindings/confirm.component.ts",
+    "./dev/bindings/input.component.ts",
+    "./dev/boot.ts"
   ]
 }
