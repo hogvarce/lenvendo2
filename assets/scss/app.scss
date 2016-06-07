@@ -1,34 +1,45 @@
 body {
-  padding: 32px;
-  margin: 32px;
   font-family: "Roboto", Arial, sans-serif;
   font-size: 16px;
+  padding-top: 200px;
 }
 
-.container {
-    padding: 16px;
-    border: 1px solid #ccc;
-    background: #eee;
-    margin-bottom: 32px;
+#header {
+    position: fixed;
+    padding: 20px 0px;
+    background-color: #eee;
+    border-bottom: 1px solid #ccc;
+    top: 0px;
+    width: 100%;
+    z-index: 100;
 }
 
-button {
-    padding: 4px 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    cursor: default;
+#counter {
+    @extend #header;
+    top: 93px;
 }
 
-button:not([disabled]) {
-    cursor: pointer;
-}
-
-button:not([disabled]):hover {
-    background: salmon;
-    color: white;
-}
-
-
-.highlight {
-    font-weight:  bold;
+#content {
+    .item {
+        cursor: pointer;
+        position: relative;
+        &.green {
+            background-color: green;
+        }
+        &.red {
+            background-color: red;
+        }
+        &.simple {
+            background-color: #fff;
+        }
+        &.selected {
+            border-color: #000;
+            z-index: 2;
+        }
+        .glyphicon {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+    }
 }

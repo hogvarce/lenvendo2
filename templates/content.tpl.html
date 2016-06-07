@@ -1,0 +1,19 @@
+<div id="content">
+    <div class="container">
+        <div class="row">
+            <ul class="list-group">
+                <li *ngFor="#listItem of listItems"
+                    (dblclick)="onChangeColor(listItem)"
+                    (click)="onSelect(listItem)"
+                    class="list-group-item item
+                        {{listItem.complex}}
+                        {{(listItem.complex != '')? 'complex': 'simple'}}
+                        {{(listItem.selected)? 'selected': ''}}"                >
+                        <h3>{{listItem.title}}</h3>
+                        <p>{{listItem.text}}</p>
+                        <span (click)="onRemove(listItem)" class="glyphicon glyphicon-remove-sign"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

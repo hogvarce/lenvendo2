@@ -24,8 +24,10 @@
   },
   "files": [
     "./dev/app.component.ts",
-    "./dev/bindings/confirm.component.ts",
-    "./dev/bindings/input.component.ts",
-    "./dev/boot.ts"
+    "./dev/boot.ts",
+    "./dev/directives/content.ts",
+    "./dev/directives/counter.ts",
+    "./dev/directives/header.ts",
+    "./dev/directives/search.ts"
   ]
 }

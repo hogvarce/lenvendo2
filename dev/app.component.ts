@@ -1,36 +1,34 @@
 import {Component} from 'angular2/core';
-import {InputComponent} from './bindings/input.component';
-import {ConfirmComponent} from './bindings/confirm.component';
+import {HeaderComponent} from './directives/header';
+import {CounterComponent} from './directives/counter';
+import {ContentComponent} from './directives/content';
 
 @Component({
     selector: 'app',
     template: `
-        <div class="container">
-            <my-input (submitted)="onSubmit($event)" [myself]="confirmedMyself"></my-input>
-        </div>
-        <div class="container">
-            <my-confirm (confirmed)="onConfirm($event)" [myself]="myself"></my-confirm>
-        </div>
+        <header (itemAdd)="onItemAdd($event)"></header>
+        <counter  [listItems]='listItems' [selected]="selected"  [selectedRed]="selectedRed"  [selectedGreen]="selectedGreen" ></counter>
+        <content  (selectedEmit)="selectedAdd($event)" [listItems]='listItems'></content>
     `,
     directives: [
-        InputComponent,
-        ConfirmComponent
+        HeaderComponent,
+        CounterComponent,
+        ContentComponent
     ]
 
 })
 export class AppComponent {
-    myself = {
-        name: '',
-        age: ''
-    };
-    confirmedMyself = {
-        name: '',
-        age: ''
+    listItems = new Array<{title: string, text: string, complex: string, selected: boolean}>();
+    selected = 0;
+    selectedRed = 0;
+    selectedGreen = 0;
+
+    onItemAdd(item: {title: string, text: string}){
+        this.listItems.push({title: item.title, text: item.text, complex: (Math.random() < 0.5)? 'green': '', selected: false});
     }
-    onSubmit(myself: {name: string, age: string}){
-        this.myself = {name: myself.name, age: myself.age};
-    }
-    onConfirm(myself: {name: string, age: string}){
-        this.confirmedMyself = {name: myself.name, age: myself.age};
+    selectedAdd(selectedObj: {selected: number, selectedRed: number, selectedGreen: number}){
+        this.selected = selectedObj.selected;
+        this.selectedRed = selectedObj.selectedRed;
+        this.selectedGreen = selectedObj.selectedGreen;
     }
 }
